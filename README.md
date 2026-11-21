@@ -97,5 +97,8 @@ O site usa `HashRouter` e `base: './'`, então funciona em qualquer subcaminho d
 
 - Preços base: multiplicadores horários e overrides por contexto não entram no cálculo.
 - Engineering Index é um proxy de engenharia; a AA descontinuou o Coding Index.
-- A correspondência entre catálogos é manual e pode atrasar a entrada de modelos novos.
+- A correspondência entre catálogos é manual e pode atrasar a entrada de modelos novos. A AA
+  publica variantes de esforço (Max/High) como entradas separadas; o `mappings.json` aponta para a
+  variante principal de cada modelo. Se um modelo aparecer como "sem Intelligence Index", confira
+  se o slug mapeado é a versão/variante avaliada mais recente.
 - Projeto pessoal e informativo, sem afiliação com OpenCode ou Artificial Analysis.

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T00:07:49.417Z",
+  "generated_at": "2026-11-21T00:21:17.994Z",
   "models": [
     {
       "id": "deepseek-v4.1-flash",
@@ -373,7 +373,7 @@
       "id": "minimax-m3",
       "name": "MiniMax-M3",
       "description": "MiniMax multimodal coding model for long-context reasoning and agent tasks",
-      "family": "minimax-m3",
+      "family": "minimax-m",
       "open_weights": true,
       "context": 1000000,
       "max_output": 131072,
@@ -396,7 +396,7 @@
       "id": "minimax-m3.1-flash",
       "name": "MiniMax M3.1 Flash",
       "description": "Frontier multimodal coding model with 1M context window and tunable thinking depth",
-      "family": "minimax",
+      "family": "minimax-m-flash",
       "open_weights": true,
       "context": 1000000,
       "max_output": 512000,

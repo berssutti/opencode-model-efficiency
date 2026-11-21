@@ -146,7 +146,17 @@ export default function Ranking() {
                         </span>
                       </td>
                       <td>
-                        <div className="model-name">{model.name}</div>
+                        <div className="model-name">
+                          {model.name}
+                          {model.training && (
+                            <span
+                              className="badge badge-warn"
+                              title="O OpenCode Go indica que este modelo pode usar seus dados para treinamento."
+                            >
+                              treina dados
+                            </span>
+                          )}
+                        </div>
                         <div className="model-id">{model.id}</div>
                       </td>
                       <td className="num">

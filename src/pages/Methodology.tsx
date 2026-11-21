@@ -148,8 +148,18 @@ tarefas/mês        = limite_mensal / custo`}</code>
             exige o tier pago da API.
           </li>
           <li>
-            A correspondência de modelos é manual. Modelos novos podem ficar fora do ranking até
-            ganharem um mapeamento e índices na AA.
+            A correspondência de modelos é manual (<code>mappings.json</code>). Modelos novos podem
+            ficar fora do ranking até ganharem um mapeamento e índices na AA.
+          </li>
+          <li>
+            A AA publica variantes de esforço (Max, High etc.) como entradas separadas. O mapeamento
+            escolhe explicitamente a variante principal de cada modelo; variantes sem índice não
+            são usadas como substitutas para não comparar configurações diferentes.
+          </li>
+          <li>
+            O selo <strong>treina dados</strong> reflete o campo <code>training</code> do catálogo
+            do OpenCode Go (por exemplo, Muse Spark Contributor e Iceman Contributor Free). Ele não
+            altera o score, mas é relevante para privacidade.
           </li>
           <li>
             Arredondamentos são aplicados apenas na exibição. O JSON mantém os valores calculados.

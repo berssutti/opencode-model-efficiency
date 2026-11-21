@@ -169,31 +169,54 @@ function toModel(raw: RawOpenCodeModel): OpenCodeModel {
 
 /* ---------- Correspondência com a Artificial Analysis ---------- */
 
+function hasIntelligenceIndex(aa: RawAaModel): boolean {
+  return aa.evaluations?.artificial_analysis_intelligence_index != null
+}
+
 function matchAaModels(
   models: OpenCodeModel[],
   aaModels: RawAaModel[],
   mappings: MappingsFile,
 ): Map<string, Match> {
   const bySlug = new Map<string, RawAaModel>()
-  const byName = new Map<string, RawAaModel>()
+  const byName = new Map<string, RawAaModel[]>()
 
   for (const aa of aaModels) {
-    bySlug.set(normalizeSlug(aa.slug), aa)
-    byName.set(normalizeName(aa.name), aa)
+    const slugKey = normalizeSlug(aa.slug)
+    if (!bySlug.has(slugKey)) bySlug.set(slugKey, aa)
+
+    const nameKey = normalizeName(aa.name)
+    const list = byName.get(nameKey)
+    if (list) list.push(aa)
+    else byName.set(nameKey, [aa])
   }
 
   const result = new Map<string, Match>()
 
   for (const model of models) {
-    const candidates = [...(mappings.models[model.id] ?? []), model.id, model.name]
     let found: Match | null = null
 
-    for (const candidate of candidates) {
-      const aa = bySlug.get(normalizeSlug(candidate)) ?? byName.get(normalizeName(candidate))
+    // 1) Mapeamentos explícitos são autoritativos: o primeiro slug existente vence.
+    //    Isso evita casar com variantes antigas/sem índice da mesma família.
+    for (const candidate of mappings.models[model.id] ?? []) {
+      const aa = bySlug.get(normalizeSlug(candidate))
       if (aa) {
         found = { aa, via: candidate }
         break
       }
+    }
+
+    // 2) Sem mapeamento: tenta id e nome, preferindo variantes com índice avaliado.
+    if (!found) {
+      const direct = bySlug.get(normalizeSlug(model.id))
+      const named = byName.get(normalizeName(model.name)) ?? []
+      const pool = new Map<string, RawAaModel>()
+      if (direct) pool.set(direct.slug, direct)
+      for (const aa of named) pool.set(aa.slug, aa)
+
+      const candidates = [...pool.values()]
+      const chosen = candidates.find(hasIntelligenceIndex) ?? candidates[0]
+      if (chosen) found = { aa: chosen, via: model.id }
     }
 
     if (found) result.set(model.id, found)

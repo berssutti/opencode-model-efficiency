@@ -111,6 +111,8 @@ export function buildRanking(
       adjustment_factor: round(factor, 4),
       monthly_limit: limit,
       franchise_pct_per_task: round(costOpenCode / limit, 8),
+      training: model.training,
+      limited_regions: model.limited_regions,
     })
   }
 

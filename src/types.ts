@@ -61,6 +61,8 @@ export interface RankedModel {
   adjustment_factor: number
   monthly_limit: number
   franchise_pct_per_task: number
+  training: boolean
+  limited_regions: boolean
 }
 
 export interface ExcludedModel {

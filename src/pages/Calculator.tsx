@@ -185,6 +185,14 @@ export default function Calculator() {
                               *
                             </span>
                           )}
+                          {row.model.training && (
+                            <span
+                              className="badge badge-warn"
+                              title="O OpenCode Go indica que este modelo pode usar seus dados para treinamento."
+                            >
+                              treina dados
+                            </span>
+                          )}
                         </div>
                         <div className="model-id">
                           in {formatUsd(row.model.prices.input)} · out{' '}
