@@ -1,0 +1,35 @@
+name: opencode-model-efficiency
+
+services:
+  dev:
+    build: .
+    image: opencode-model-efficiency:dev
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    environment:
+      CHOKIDAR_USEPOLLING: ${CHOKIDAR_USEPOLLING:-true}
+
+  build:
+    build: .
+    image: opencode-model-efficiency:dev
+    command: sh -c "npm install && npm run build"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+
+  update:
+    build: .
+    image: opencode-model-efficiency:dev
+    command: sh -c "npm install && npm run update:data"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    environment:
+      AA_API_KEY: ${AA_API_KEY:-}
+
+volumes:
+  node_modules:

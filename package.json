@@ -1,0 +1,29 @@
+{
+  "name": "opencode-model-efficiency",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "update:data": "tsx scripts/update-data.ts",
+    "test": "tsx scripts/test-calc.ts && tsx scripts/test-ranking.ts",
+    "test:calc": "tsx scripts/test-calc.ts",
+    "test:ranking": "tsx scripts/test-ranking.ts"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.6.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.0"
+  }
+}
