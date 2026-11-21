@@ -1,4 +1,6 @@
-FROM node:22-alpine
+# Debian/glibc para bater com o runner ubuntu-latest do GitHub Actions.
+# (Alpine/musl gerava um package-lock sem o binário nativo do Rollup para glibc.)
+FROM node:22-bookworm-slim
 
 WORKDIR /app
 
