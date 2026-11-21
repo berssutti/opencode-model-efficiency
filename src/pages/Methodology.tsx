@@ -134,9 +134,10 @@ tarefas/mês        = limite_mensal / custo`}</code>
         <h2>6. Limitações conhecidas</h2>
         <ul>
           <li>
-            Usamos o <strong>preço base</strong> dos modelos. Multiplicadores por horário (pico) e
-            preços diferenciados por tamanho de contexto não entram no cálculo; esses modelos são
-            marcados com <code>*</code>.
+            Na calculadora, preços diferenciados por <strong>tamanho de contexto</strong> são
+            aplicados automaticamente quando os tokens de entrada ultrapassam o limiar do modelo.
+            Multiplicadores por horário (pico) e prêmio de cache write continuam fora do cálculo;
+            esses modelos são marcados com <code>*</code>.
           </li>
           <li>
             O custo por tarefa da AA é uma média de uma suíte de avaliação e não representa

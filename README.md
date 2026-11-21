@@ -34,6 +34,15 @@ O `node_modules` fica em um volume Docker, nunca no host.
 2. Copie `.env.example` para `.env` e preencha `AA_API_KEY`.
 3. Rode `docker compose run --rm update`.
 
+O update tem uma **guarda de qualidade**: se a quantidade de modelos ranqueados, de
+correspondências com a AA ou o catálogo da AA caírem pela metade em relação à execução anterior, o
+script aborta sem gravar (proteção contra mudanças de schema e APIs quebradas). Se a mudança for
+legítima, rode com `--force`:
+
+```bash
+docker compose run --rm update npm run update:data -- --force
+```
+
 Sem a chave, a calculadora funciona com o catálogo do OpenCode, mas o ranking fica vazio:
 
 ```bash
@@ -95,7 +104,8 @@ O site usa `HashRouter` e `base: './'`, então funciona em qualquer subcaminho d
 
 ## Limitações
 
-- Preços base: multiplicadores horários e overrides por contexto não entram no cálculo.
+- A calculadora aplica overrides por tamanho de contexto com base nos tokens de entrada informados.
+  Multiplicadores horários e prêmio de cache write não entram no cálculo.
 - Engineering Index é um proxy de engenharia; a AA descontinuou o Coding Index.
 - A correspondência entre catálogos é manual e pode atrasar a entrada de modelos novos. A AA
   publica variantes de esforço (Max/High) como entradas separadas; o `mappings.json` aponta para a

@@ -1,4 +1,4 @@
-import type { TokenPrices } from '../types'
+import type { PriceOverride, TokenPrices } from '../types'
 
 /**
  * Custo em dólares de um request de acordo com os preços por 1M de tokens.
@@ -17,6 +17,37 @@ export function requestCost(
     (freshTokens * prices.input + cachedTokens * prices.cache_read + tokensOut * prices.output) /
     1_000_000
   )
+}
+
+/** Override de preço mais alto aplicável a um número de tokens de entrada. */
+export function activePriceOverride(
+  overrides: PriceOverride[],
+  tokensIn: number,
+): PriceOverride | null {
+  let active: PriceOverride | null = null
+  const ordered = [...overrides].sort((a, b) => a.context_gt - b.context_gt)
+  for (const override of ordered) {
+    if (tokensIn > override.context_gt) active = override
+  }
+  return active
+}
+
+/**
+ * Preços efetivos para um request, considerando os overrides por tamanho de contexto.
+ * O maior limiar ultrapassado vence; campos não definidos no override usam o preço base.
+ */
+export function pricesForContext(
+  base: Pick<TokenPrices, 'input' | 'output' | 'cache_read'>,
+  overrides: PriceOverride[],
+  tokensIn: number,
+): Pick<TokenPrices, 'input' | 'output' | 'cache_read'> {
+  const active = activePriceOverride(overrides, tokensIn)
+  if (!active) return base
+  return {
+    input: active.input ?? base.input,
+    output: active.output ?? base.output,
+    cache_read: active.cache_read ?? base.cache_read,
+  }
 }
 
 /** Fração (0-1) da franquia mensal consumida por um custo. */

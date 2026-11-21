@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict'
 import {
+  activePriceOverride,
   adjustmentFactor,
   efficiencyScore,
   franchiseShare,
   normalizeScore,
+  pricesForContext,
   requestCost,
   tasksCovered,
 } from '../src/lib/calc'
@@ -38,5 +40,20 @@ approx(normalizeScore(0, 4800), 0)
 approx(adjustmentFactor({ input: 1, output: 2 }, { input: 1, output: 2 }), 1)
 approx(adjustmentFactor({ input: 0.5, output: 1 }, { input: 1, output: 2 }), 0.5)
 approx(adjustmentFactor({ input: 1, output: 2 }, { input: 0, output: 0 }), 1)
+
+// Overrides por tamanho de contexto
+const basePrices = { input: 1, output: 2, cache_read: 0.1 }
+const overrides = [
+  { context_gt: 100_000, input: 2, output: 4, cache_read: 0.2 },
+  { context_gt: 200_000, input: 4, output: 8, cache_read: 0.4 },
+]
+approx(pricesForContext(basePrices, overrides, 50_000).input, 1)
+approx(pricesForContext(basePrices, overrides, 150_000).input, 2)
+approx(pricesForContext(basePrices, overrides, 150_000).output, 4)
+approx(pricesForContext(basePrices, overrides, 250_000).input, 4)
+approx(pricesForContext(basePrices, overrides, 250_000).cache_read, 0.4)
+assert.equal(activePriceOverride(overrides, 50_000), null)
+assert.equal(activePriceOverride(overrides, 150_000)?.context_gt, 100_000)
+assert.equal(activePriceOverride(overrides, 250_000)?.context_gt, 200_000)
 
 console.log('✓ test:calc — todos os casos passaram')

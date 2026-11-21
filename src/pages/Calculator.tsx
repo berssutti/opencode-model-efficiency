@@ -1,12 +1,14 @@
 import { useMemo, useState } from 'react'
-import { requestCost } from '../lib/calc'
+import { activePriceOverride, pricesForContext, requestCost } from '../lib/calc'
 import { useJson } from '../lib/data'
 import { formatLimit, formatPct, formatTasks, formatTokens, formatUsd } from '../lib/format'
-import type { ModelsFile, OpenCodeModel, Plan } from '../types'
+import type { ModelsFile, OpenCodeModel, Plan, PriceOverride } from '../types'
 import { PLAN_LABELS } from '../types'
 
 interface Row {
   model: OpenCodeModel
+  prices: Pick<OpenCodeModel['prices'], 'input' | 'output' | 'cache_read'>
+  override: PriceOverride | null
   cost: number
   limit: number | null
   pct: number | null
@@ -42,12 +44,16 @@ export default function Calculator() {
         continue
       }
 
-      const cost = requestCost(input, output, cache, model.prices)
+      const overrides = model.price_overrides ?? []
+      const prices = pricesForContext(model.prices, overrides, input)
+      const cost = requestCost(input, output, cache, prices)
       const limit = model.monthly_usage[plan]
       const hasLimit = limit !== null && limit > 0
 
       paid.push({
         model,
+        prices,
+        override: activePriceOverride(overrides, input),
         cost,
         limit,
         pct: hasLimit ? cost / limit : null,
@@ -180,7 +186,7 @@ export default function Calculator() {
                           {row.model.has_pricing_complexity && (
                             <span
                               className="asterisk"
-                              title="Preço base. Multiplicadores horários e overrides por contexto não são considerados."
+                              title="Multiplicadores horários e prêmio de cache write não são considerados."
                             >
                               *
                             </span>
@@ -195,10 +201,15 @@ export default function Calculator() {
                           )}
                         </div>
                         <div className="model-id">
-                          in {formatUsd(row.model.prices.input)} · out{' '}
-                          {formatUsd(row.model.prices.output)} · cache{' '}
-                          {formatUsd(row.model.prices.cache_read)} /1M
+                          in {formatUsd(row.prices.input)} · out {formatUsd(row.prices.output)} ·
+                          cache {formatUsd(row.prices.cache_read)} /1M
                         </div>
+                        {row.override && (
+                          <div className="model-id override-note">
+                            acima de {formatTokens(row.override.context_gt)} tokens de entrada:
+                            preço de contexto aplicado
+                          </div>
+                        )}
                       </td>
                       <td className="num mono">{formatUsd(row.cost)}</td>
                       <td className="num mono">
@@ -244,8 +255,9 @@ export default function Calculator() {
               20% e semanal = 50% do limite mensal.
             </p>
             <p>
-              * Modelos com multiplicadores de horário ou preços diferentes por tamanho de contexto:
-              usamos apenas o preço base.
+              * Multiplicadores por horário (pico) e prêmio de cache write não são considerados.
+              Preços diferenciados por tamanho de contexto são aplicados automaticamente quando os
+              tokens de entrada ultrapassam o limiar do modelo.
             </p>
           </div>
         </>

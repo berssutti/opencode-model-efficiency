@@ -12,6 +12,13 @@ export interface TokenPrices {
   cache_write: number | null
 }
 
+export interface PriceOverride {
+  context_gt: number
+  input: number | null
+  output: number | null
+  cache_read: number | null
+}
+
 export interface OpenCodeModel {
   id: string
   name: string
@@ -21,6 +28,7 @@ export interface OpenCodeModel {
   context: number | null
   max_output: number | null
   prices: TokenPrices
+  price_overrides: PriceOverride[]
   monthly_usage: { go: number | null; go_plus: number | null } | null
   training: boolean
   limited_regions: boolean
@@ -77,7 +85,7 @@ export interface RankingFile {
   generated_at: string
   intelligence_index_version: string | null
   plans: Record<Plan, Record<RankingViewKey, RankedModel[]>>
-  excluded: Record<RankingViewKey, ExcludedModel[]>
+  excluded: Record<Plan, Record<RankingViewKey, ExcludedModel[]>>
 }
 
 export interface MetaFile {
@@ -88,5 +96,7 @@ export interface MetaFile {
     matched: number
     ranked_coding: number
     ranked_general: number
+    aa_models?: number
+    unmatched?: number
   }
 }

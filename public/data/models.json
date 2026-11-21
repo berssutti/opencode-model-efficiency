@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T00:21:17.994Z",
+  "generated_at": "2026-11-21T00:51:49.473Z",
   "models": [
     {
       "id": "deepseek-v4.1-flash",
@@ -15,6 +15,7 @@
         "cache_read": 0.003,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 100,
         "go_plus": 200
@@ -28,7 +29,7 @@
       "id": "deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
       "description": "Flagship DeepSeek model for coding, reasoning, and agentic work",
-      "family": "deepseek-thinking",
+      "family": "deepseek-pro",
       "open_weights": true,
       "context": 1000000,
       "max_output": 384000,
@@ -38,6 +39,7 @@
         "cache_read": 0.022,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 15,
         "go_plus": 60
@@ -61,6 +63,7 @@
         "cache_read": 0.26,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 500,
         "go_plus": 1000
@@ -84,6 +87,14 @@
         "cache_read": 0.5,
         "cache_write": null
       },
+      "price_overrides": [
+        {
+          "context_gt": 200000,
+          "input": 4,
+          "output": 12,
+          "cache_read": 1
+        }
+      ],
       "monthly_usage": {
         "go": 15,
         "go_plus": 60
@@ -91,13 +102,13 @@
       "training": false,
       "limited_regions": false,
       "free": false,
-      "has_pricing_complexity": true
+      "has_pricing_complexity": false
     },
     {
       "id": "muse-spark-1.2-contributor",
       "name": "Muse Spark 1.2 Contributor",
       "description": "Muse Spark 1.2 is a coding-focused update to Muse Spark 1.1 with improvements in code generation, complex debugging, codebase understanding, and end-to-end developer workflows.",
-      "family": "muse",
+      "family": "muse-spark",
       "open_weights": false,
       "context": 1048576,
       "max_output": 131072,
@@ -107,6 +118,7 @@
         "cache_read": 0.002,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 60,
         "go_plus": 120
@@ -120,7 +132,7 @@
       "id": "muse-spark-1.3-contributor",
       "name": "Muse Spark 1.3 Contributor",
       "description": "Muse Spark 1.3 is a multimodal reasoning model from Meta for coding and agentic workflows.",
-      "family": "muse",
+      "family": "muse-spark",
       "open_weights": false,
       "context": 1048576,
       "max_output": 131072,
@@ -130,6 +142,7 @@
         "cache_read": 0.002,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 60,
         "go_plus": 120
@@ -153,6 +166,7 @@
         "cache_read": 0.03,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 60,
         "go_plus": 180
@@ -176,6 +190,14 @@
         "cache_read": 0.02,
         "cache_write": null
       },
+      "price_overrides": [
+        {
+          "context_gt": 272000,
+          "input": 0.4,
+          "output": 1.8,
+          "cache_read": 0.04
+        }
+      ],
       "monthly_usage": {
         "go": 15,
         "go_plus": 60
@@ -199,6 +221,14 @@
         "cache_read": 0.01,
         "cache_write": null
       },
+      "price_overrides": [
+        {
+          "context_gt": 272000,
+          "input": 0.2,
+          "output": 0.75,
+          "cache_read": 0.02
+        }
+      ],
       "monthly_usage": {
         "go": 15,
         "go_plus": 60
@@ -222,6 +252,14 @@
         "cache_read": 0.01,
         "cache_write": 0.125
       },
+      "price_overrides": [
+        {
+          "context_gt": 100000,
+          "input": 0.5,
+          "output": 2.5,
+          "cache_read": 0.05
+        }
+      ],
       "monthly_usage": {
         "go": 15,
         "go_plus": 60
@@ -235,7 +273,7 @@
       "id": "hy3",
       "name": "Hy3",
       "description": "Tencent Hy reasoning model for coding, instruction following, and agent tasks",
-      "family": "Hy",
+      "family": "hy",
       "open_weights": true,
       "context": 256000,
       "max_output": 128000,
@@ -245,6 +283,7 @@
         "cache_read": 0.035,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 60,
         "go_plus": 240
@@ -258,7 +297,7 @@
       "id": "hy4-preview",
       "name": "Hy4 preview",
       "description": "A next-generation productivity model with significantly enhanced Agent and complex task execution capabilities.",
-      "family": "Hy",
+      "family": "hy",
       "open_weights": true,
       "context": 1024000,
       "max_output": 64000,
@@ -268,6 +307,7 @@
         "cache_read": 0.042,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 30,
         "go_plus": 120
@@ -281,7 +321,7 @@
       "id": "kimi-k2.7-code",
       "name": "Kimi K2.7 Code",
       "description": "Coding-focused Kimi model, stronger on long-horizon repo work with less overthinking",
-      "family": "kimi-k2",
+      "family": "kimi-code",
       "open_weights": true,
       "context": 262144,
       "max_output": 262144,
@@ -291,6 +331,7 @@
         "cache_read": 0.19,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 60,
         "go_plus": 180
@@ -304,7 +345,7 @@
       "id": "kimi-k3",
       "name": "Kimi K3",
       "description": "Multimodal Kimi model with 1M context and toggleable max-effort thinking for long-horizon agent work",
-      "family": "kimi-k3",
+      "family": "kimi",
       "open_weights": true,
       "context": 1048576,
       "max_output": 1048576,
@@ -314,6 +355,7 @@
         "cache_read": 0.3,
         "cache_write": 3
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 15,
         "go_plus": 60
@@ -321,13 +363,13 @@
       "training": false,
       "limited_regions": false,
       "free": false,
-      "has_pricing_complexity": false
+      "has_pricing_complexity": true
     },
     {
       "id": "mimo-v2.6-flash",
       "name": "MiMo-V2.6-Flash",
       "description": "MiMo Flash model for multimodal coding agents and long-context automation",
-      "family": "mimo",
+      "family": "mimo-flash",
       "open_weights": true,
       "context": 1048576,
       "max_output": 131072,
@@ -337,6 +379,7 @@
         "cache_read": 0.0028,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 60,
         "go_plus": 120
@@ -350,7 +393,7 @@
       "id": "mimo-v2.6-pro",
       "name": "MiMo-V2.6-Pro",
       "description": "Stronger MiMo Pro tier for multimodal reasoning and coding-agent execution",
-      "family": "mimo",
+      "family": "mimo-pro",
       "open_weights": true,
       "context": 1048576,
       "max_output": 131072,
@@ -360,6 +403,7 @@
         "cache_read": 0.003625,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 15,
         "go_plus": 60
@@ -383,6 +427,14 @@
         "cache_read": 0.06,
         "cache_write": null
       },
+      "price_overrides": [
+        {
+          "context_gt": 512000,
+          "input": 0.6,
+          "output": 2.4,
+          "cache_read": 0.12
+        }
+      ],
       "monthly_usage": {
         "go": 60,
         "go_plus": 180
@@ -390,7 +442,7 @@
       "training": false,
       "limited_regions": false,
       "free": false,
-      "has_pricing_complexity": true
+      "has_pricing_complexity": false
     },
     {
       "id": "minimax-m3.1-flash",
@@ -406,6 +458,7 @@
         "cache_read": 0.015,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 20,
         "go_plus": 80
@@ -429,6 +482,7 @@
         "cache_read": 0.006,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 60,
         "go_plus": 240
@@ -442,7 +496,7 @@
       "id": "step-5-preview",
       "name": "Step 5 Preview",
       "description": "StepFun's next-generation flagship base model for coding and professional knowledge work, with native text, image, and video input and a 1M-token context window",
-      "family": null,
+      "family": "step",
       "open_weights": true,
       "context": 1000000,
       "max_output": 65536,
@@ -452,6 +506,7 @@
         "cache_read": 0.1,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 15,
         "go_plus": 60
@@ -465,7 +520,7 @@
       "id": "beam-free",
       "name": "Beam Free",
       "description": "Sparse mixture-of-experts reasoning model with 23B active parameters for coding and agentic workflows",
-      "family": "beam",
+      "family": "beam-free",
       "open_weights": true,
       "context": 1048576,
       "max_output": 131072,
@@ -475,6 +530,7 @@
         "cache_read": 0,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": null,
       "training": false,
       "limited_regions": true,
@@ -485,7 +541,7 @@
       "id": "qwen3.8-max",
       "name": "Qwen3.8 Max",
       "description": "2.4-trillion-parameter multimodal flagship for coding, professional work, and long-horizon agentic workflows",
-      "family": "qwen3.8-max",
+      "family": "qwen-max",
       "open_weights": false,
       "context": 1000000,
       "max_output": 131072,
@@ -495,6 +551,7 @@
         "cache_read": 0.25,
         "cache_write": 2.5
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 15,
         "go_plus": 60
@@ -502,13 +559,13 @@
       "training": false,
       "limited_regions": false,
       "free": false,
-      "has_pricing_complexity": false
+      "has_pricing_complexity": true
     },
     {
       "id": "qwen3.8-flash",
       "name": "Qwen3.8 Flash",
       "description": "Qwen vision-language model for visual reasoning, documents, and agent tasks",
-      "family": "qwen",
+      "family": "qwen-flash",
       "open_weights": false,
       "context": 1000000,
       "max_output": 131072,
@@ -518,6 +575,7 @@
         "cache_read": 0.016,
         "cache_write": 0.2
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 30,
         "go_plus": 90
@@ -525,13 +583,13 @@
       "training": false,
       "limited_regions": false,
       "free": false,
-      "has_pricing_complexity": false
+      "has_pricing_complexity": true
     },
     {
       "id": "qwen3.7-plus",
       "name": "Qwen3.7 Plus",
       "description": "Multimodal reasoning model for visual analysis, planning, and tool use",
-      "family": "qwen3.7-plus",
+      "family": "qwen-plus",
       "open_weights": false,
       "context": 1000000,
       "max_output": 65536,
@@ -541,6 +599,14 @@
         "cache_read": 0.04,
         "cache_write": 0.5
       },
+      "price_overrides": [
+        {
+          "context_gt": 256000,
+          "input": 1.2,
+          "output": 4.8,
+          "cache_read": 0.12
+        }
+      ],
       "monthly_usage": {
         "go": 60,
         "go_plus": 180
@@ -554,7 +620,7 @@
       "id": "kimi-k3.1-pro",
       "name": "Kimi K3.1 Pro",
       "description": "Multimodal Kimi model with a 1M-token context window and always-on reasoning, for coding, 3D creation and financial research",
-      "family": "kimi-k3",
+      "family": "kimi-pro",
       "open_weights": true,
       "context": 1048576,
       "max_output": 1048576,
@@ -564,6 +630,7 @@
         "cache_read": 0.2,
         "cache_write": 2
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 15,
         "go_plus": 60
@@ -571,7 +638,7 @@
       "training": false,
       "limited_regions": false,
       "free": false,
-      "has_pricing_complexity": false
+      "has_pricing_complexity": true
     },
     {
       "id": "iceman-contributor-free",
@@ -587,6 +654,7 @@
         "cache_read": 0,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": null,
       "training": true,
       "limited_regions": false,
@@ -607,6 +675,7 @@
         "cache_read": 0.1,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 30,
         "go_plus": 120
@@ -620,7 +689,7 @@
       "id": "hy4",
       "name": "Hy4",
       "description": "A next-generation multimodal productivity model with significantly enhanced Agent and complex task execution capabilities.",
-      "family": "Hy",
+      "family": "hy",
       "open_weights": false,
       "context": 1048576,
       "max_output": 65536,
@@ -630,6 +699,7 @@
         "cache_read": 0.042,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 60,
         "go_plus": 240
@@ -643,7 +713,7 @@
       "id": "longcat-2.5-free",
       "name": "LongCat 2.5 Free",
       "description": "Meituan's multimodal reasoning model for long-horizon coding and agent tasks, with visual understanding and a 1M-token context window",
-      "family": "longcat",
+      "family": "longcat-free",
       "open_weights": false,
       "context": 1000000,
       "max_output": 262144,
@@ -653,6 +723,7 @@
         "cache_read": 0,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": null,
       "training": false,
       "limited_regions": false,
@@ -663,7 +734,7 @@
       "id": "hy4-flash-free",
       "name": "Hy4 flash Free",
       "description": "Tencent's lower-cost Hy4 tier for everyday agent and productivity tasks, with image understanding and a 1M-token context window.",
-      "family": "Hy",
+      "family": "hy-flash-free",
       "open_weights": false,
       "context": 1048576,
       "max_output": 65536,
@@ -673,6 +744,7 @@
         "cache_read": 0,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": null,
       "training": false,
       "limited_regions": false,
@@ -683,7 +755,7 @@
       "id": "qwen4-max",
       "name": "Qwen4 Max",
       "description": "Flagship multimodal model for coding, office productivity, frontend design, and complex agentic tasks",
-      "family": "qwen4-max",
+      "family": "qwen-max",
       "open_weights": false,
       "context": 1000000,
       "max_output": 262144,
@@ -693,6 +765,7 @@
         "cache_read": 0.075,
         "cache_write": null
       },
+      "price_overrides": [],
       "monthly_usage": {
         "go": 15,
         "go_plus": 60

@@ -10,6 +10,7 @@ function model(overrides: Partial<OpenCodeModel> & Pick<OpenCodeModel, 'id' | 'n
     context: 1_000_000,
     max_output: 128_000,
     prices: { input: 1, output: 2, cache_read: 0.1, cache_write: null },
+    price_overrides: [],
     monthly_usage: { go: 100, go_plus: 200 },
     training: false,
     limited_regions: false,

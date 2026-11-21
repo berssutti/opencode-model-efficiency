@@ -426,6 +426,11 @@ code {
   margin-top: 2px;
 }
 
+.override-note {
+  color: #e0b86a;
+  white-space: normal;
+}
+
 .rank {
   display: inline-grid;
   place-items: center;

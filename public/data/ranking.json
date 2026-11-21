@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T00:21:17.994Z",
+  "generated_at": "2026-11-21T00:51:49.473Z",
   "intelligence_index_version": "5",
   "plans": {
     "go": {
@@ -1136,119 +1136,237 @@
     }
   },
   "excluded": {
-    "coding": [
-      {
-        "id": "muse-spark-1.2-contributor",
-        "name": "Muse Spark 1.2 Contributor",
-        "reason": "sem Engineering Index na Artificial Analysis"
-      },
-      {
-        "id": "hy3",
-        "name": "Hy3",
-        "reason": "sem Engineering Index na Artificial Analysis"
-      },
-      {
-        "id": "hy4-preview",
-        "name": "Hy4 preview",
-        "reason": "sem correspondência na Artificial Analysis"
-      },
-      {
-        "id": "kimi-k2.7-code",
-        "name": "Kimi K2.7 Code",
-        "reason": "sem Engineering Index na Artificial Analysis"
-      },
-      {
-        "id": "kimi-k3",
-        "name": "Kimi K3",
-        "reason": "sem Engineering Index na Artificial Analysis"
-      },
-      {
-        "id": "longcat-2.0",
-        "name": "LongCat-2.0",
-        "reason": "sem Engineering Index na Artificial Analysis"
-      },
-      {
-        "id": "beam-free",
-        "name": "Beam Free",
-        "reason": "modelo gratuito — não consome franquia"
-      },
-      {
-        "id": "qwen3.7-plus",
-        "name": "Qwen3.7 Plus",
-        "reason": "sem Engineering Index na Artificial Analysis"
-      },
-      {
-        "id": "iceman-contributor-free",
-        "name": "Iceman Contributor Free",
-        "reason": "modelo gratuito — não consome franquia"
-      },
-      {
-        "id": "longcat-2.5-free",
-        "name": "LongCat 2.5 Free",
-        "reason": "modelo gratuito — não consome franquia"
-      },
-      {
-        "id": "hy4-flash-free",
-        "name": "Hy4 flash Free",
-        "reason": "modelo gratuito — não consome franquia"
-      }
-    ],
-    "general": [
-      {
-        "id": "muse-spark-1.2-contributor",
-        "name": "Muse Spark 1.2 Contributor",
-        "reason": "sem Intelligence Index na Artificial Analysis"
-      },
-      {
-        "id": "hy3",
-        "name": "Hy3",
-        "reason": "sem Intelligence Index na Artificial Analysis"
-      },
-      {
-        "id": "hy4-preview",
-        "name": "Hy4 preview",
-        "reason": "sem correspondência na Artificial Analysis"
-      },
-      {
-        "id": "kimi-k2.7-code",
-        "name": "Kimi K2.7 Code",
-        "reason": "sem Intelligence Index na Artificial Analysis"
-      },
-      {
-        "id": "kimi-k3",
-        "name": "Kimi K3",
-        "reason": "sem Intelligence Index na Artificial Analysis"
-      },
-      {
-        "id": "longcat-2.0",
-        "name": "LongCat-2.0",
-        "reason": "sem Intelligence Index na Artificial Analysis"
-      },
-      {
-        "id": "beam-free",
-        "name": "Beam Free",
-        "reason": "modelo gratuito — não consome franquia"
-      },
-      {
-        "id": "qwen3.7-plus",
-        "name": "Qwen3.7 Plus",
-        "reason": "sem Intelligence Index na Artificial Analysis"
-      },
-      {
-        "id": "iceman-contributor-free",
-        "name": "Iceman Contributor Free",
-        "reason": "modelo gratuito — não consome franquia"
-      },
-      {
-        "id": "longcat-2.5-free",
-        "name": "LongCat 2.5 Free",
-        "reason": "modelo gratuito — não consome franquia"
-      },
-      {
-        "id": "hy4-flash-free",
-        "name": "Hy4 flash Free",
-        "reason": "modelo gratuito — não consome franquia"
-      }
-    ]
+    "go": {
+      "coding": [
+        {
+          "id": "muse-spark-1.2-contributor",
+          "name": "Muse Spark 1.2 Contributor",
+          "reason": "sem Engineering Index na Artificial Analysis"
+        },
+        {
+          "id": "hy3",
+          "name": "Hy3",
+          "reason": "sem Engineering Index na Artificial Analysis"
+        },
+        {
+          "id": "hy4-preview",
+          "name": "Hy4 preview",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "kimi-k2.7-code",
+          "name": "Kimi K2.7 Code",
+          "reason": "sem Engineering Index na Artificial Analysis"
+        },
+        {
+          "id": "kimi-k3",
+          "name": "Kimi K3",
+          "reason": "sem Engineering Index na Artificial Analysis"
+        },
+        {
+          "id": "longcat-2.0",
+          "name": "LongCat-2.0",
+          "reason": "sem Engineering Index na Artificial Analysis"
+        },
+        {
+          "id": "beam-free",
+          "name": "Beam Free",
+          "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "qwen3.7-plus",
+          "name": "Qwen3.7 Plus",
+          "reason": "sem Engineering Index na Artificial Analysis"
+        },
+        {
+          "id": "iceman-contributor-free",
+          "name": "Iceman Contributor Free",
+          "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "longcat-2.5-free",
+          "name": "LongCat 2.5 Free",
+          "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "hy4-flash-free",
+          "name": "Hy4 flash Free",
+          "reason": "modelo gratuito — não consome franquia"
+        }
+      ],
+      "general": [
+        {
+          "id": "muse-spark-1.2-contributor",
+          "name": "Muse Spark 1.2 Contributor",
+          "reason": "sem Intelligence Index na Artificial Analysis"
+        },
+        {
+          "id": "hy3",
+          "name": "Hy3",
+          "reason": "sem Intelligence Index na Artificial Analysis"
+        },
+        {
+          "id": "hy4-preview",
+          "name": "Hy4 preview",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "kimi-k2.7-code",
+          "name": "Kimi K2.7 Code",
+          "reason": "sem Intelligence Index na Artificial Analysis"
+        },
+        {
+          "id": "kimi-k3",
+          "name": "Kimi K3",
+          "reason": "sem Intelligence Index na Artificial Analysis"
+        },
+        {
+          "id": "longcat-2.0",
+          "name": "LongCat-2.0",
+          "reason": "sem Intelligence Index na Artificial Analysis"
+        },
+        {
+          "id": "beam-free",
+          "name": "Beam Free",
+          "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "qwen3.7-plus",
+          "name": "Qwen3.7 Plus",
+          "reason": "sem Intelligence Index na Artificial Analysis"
+        },
+        {
+          "id": "iceman-contributor-free",
+          "name": "Iceman Contributor Free",
+          "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "longcat-2.5-free",
+          "name": "LongCat 2.5 Free",
+          "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "hy4-flash-free",
+          "name": "Hy4 flash Free",
+          "reason": "modelo gratuito — não consome franquia"
+        }
+      ]
+    },
+    "go_plus": {
+      "coding": [
+        {
+          "id": "muse-spark-1.2-contributor",
+          "name": "Muse Spark 1.2 Contributor",
+          "reason": "sem Engineering Index na Artificial Analysis"
+        },
+        {
+          "id": "hy3",
+          "name": "Hy3",
+          "reason": "sem Engineering Index na Artificial Analysis"
+        },
+        {
+          "id": "hy4-preview",
+          "name": "Hy4 preview",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "kimi-k2.7-code",
+          "name": "Kimi K2.7 Code",
+          "reason": "sem Engineering Index na Artificial Analysis"
+        },
+        {
+          "id": "kimi-k3",
+          "name": "Kimi K3",
+          "reason": "sem Engineering Index na Artificial Analysis"
+        },
+        {
+          "id": "longcat-2.0",
+          "name": "LongCat-2.0",
+          "reason": "sem Engineering Index na Artificial Analysis"
+        },
+        {
+          "id": "beam-free",
+          "name": "Beam Free",
+          "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "qwen3.7-plus",
+          "name": "Qwen3.7 Plus",
+          "reason": "sem Engineering Index na Artificial Analysis"
+        },
+        {
+          "id": "iceman-contributor-free",
+          "name": "Iceman Contributor Free",
+          "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "longcat-2.5-free",
+          "name": "LongCat 2.5 Free",
+          "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "hy4-flash-free",
+          "name": "Hy4 flash Free",
+          "reason": "modelo gratuito — não consome franquia"
+        }
+      ],
+      "general": [
+        {
+          "id": "muse-spark-1.2-contributor",
+          "name": "Muse Spark 1.2 Contributor",
+          "reason": "sem Intelligence Index na Artificial Analysis"
+        },
+        {
+          "id": "hy3",
+          "name": "Hy3",
+          "reason": "sem Intelligence Index na Artificial Analysis"
+        },
+        {
+          "id": "hy4-preview",
+          "name": "Hy4 preview",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "kimi-k2.7-code",
+          "name": "Kimi K2.7 Code",
+          "reason": "sem Intelligence Index na Artificial Analysis"
+        },
+        {
+          "id": "kimi-k3",
+          "name": "Kimi K3",
+          "reason": "sem Intelligence Index na Artificial Analysis"
+        },
+        {
+          "id": "longcat-2.0",
+          "name": "LongCat-2.0",
+          "reason": "sem Intelligence Index na Artificial Analysis"
+        },
+        {
+          "id": "beam-free",
+          "name": "Beam Free",
+          "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "qwen3.7-plus",
+          "name": "Qwen3.7 Plus",
+          "reason": "sem Intelligence Index na Artificial Analysis"
+        },
+        {
+          "id": "iceman-contributor-free",
+          "name": "Iceman Contributor Free",
+          "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "longcat-2.5-free",
+          "name": "LongCat 2.5 Free",
+          "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "hy4-flash-free",
+          "name": "Hy4 flash Free",
+          "reason": "modelo gratuito — não consome franquia"
+        }
+      ]
+    }
   }
 }

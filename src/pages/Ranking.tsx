@@ -47,7 +47,7 @@ export default function Ranking() {
   const [view, setView] = useState<RankingViewKey>('coding')
 
   const entries = useMemo(() => data?.plans?.[plan]?.[view] ?? [], [data, plan, view])
-  const excluded = useMemo(() => data?.excluded?.[view] ?? [], [data, view])
+  const excluded = useMemo(() => data?.excluded?.[plan]?.[view] ?? [], [data, plan, view])
   const top = entries.slice(0, 10)
   const copy = VIEW_COPY[view]
 

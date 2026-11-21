@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, rename, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { buildRanking } from '../src/lib/ranking'
@@ -9,6 +9,7 @@ import type {
   ModelsFile,
   OpenCodeModel,
   Plan,
+  PriceOverride,
   RankingFile,
 } from '../src/types'
 
@@ -21,10 +22,16 @@ const PLANS: Plan[] = ['go', 'go_plus']
 
 /* ---------- Tipos das APIs ---------- */
 
+interface RawOverride {
+  when?: { context?: { gt?: number } }
+  price?: number
+  cache?: { read?: number }
+}
+
 interface RawPrice {
   price?: number
   cache?: { read?: number; write?: number | Record<string, number> }
-  overrides?: unknown[]
+  overrides?: RawOverride[]
 }
 
 interface RawOpenCodeModel {
@@ -122,16 +129,65 @@ async function fileExists(filePath: string): Promise<boolean> {
 }
 
 async function writeJson(fileName: string, value: unknown): Promise<void> {
-  await writeFile(path.join(DATA_DIR, fileName), `${JSON.stringify(value, null, 2)}\n`, 'utf8')
+  const target = path.join(DATA_DIR, fileName)
+  const temp = `${target}.tmp`
+  await writeFile(temp, `${JSON.stringify(value, null, 2)}\n`, 'utf8')
+  // renomear no mesmo diretório é atômico: nunca deixa um JSON truncado.
+  await rename(temp, target)
+}
+
+async function readPreviousMeta(): Promise<MetaFile | null> {
+  try {
+    return JSON.parse(await readFile(path.join(DATA_DIR, 'meta.json'), 'utf8')) as MetaFile
+  } catch {
+    return null
+  }
 }
 
 /* ---------- Transformação do catálogo OpenCode ---------- */
+
+function collectPriceOverrides(input?: RawPrice, output?: RawPrice): PriceOverride[] {
+  const byThreshold = new Map<number, PriceOverride>()
+
+  const add = (raw: RawPrice | undefined, kind: 'input' | 'output') => {
+    for (const override of raw?.overrides ?? []) {
+      const threshold = override.when?.context?.gt
+      if (typeof threshold !== 'number') continue
+
+      const entry = byThreshold.get(threshold) ?? {
+        context_gt: threshold,
+        input: null,
+        output: null,
+        cache_read: null,
+      }
+
+      if (kind === 'input') {
+        if (typeof override.price === 'number') entry.input = override.price
+        if (typeof override.cache?.read === 'number') entry.cache_read = override.cache.read
+      } else if (typeof override.price === 'number') {
+        entry.output = override.price
+      }
+
+      byThreshold.set(threshold, entry)
+    }
+  }
+
+  add(input, 'input')
+  add(output, 'output')
+  return [...byThreshold.values()].sort((a, b) => a.context_gt - b.context_gt)
+}
 
 function toModel(raw: RawOpenCodeModel): OpenCodeModel {
   const input = raw.cost?.text?.input
   const output = raw.cost?.text?.output
   const cacheWriteRaw = input?.cache?.write
   const monthlyRaw = raw.go?.monthly_usage ?? null
+  const cacheWritePremium =
+    typeof cacheWriteRaw === 'number'
+      ? cacheWriteRaw > 0
+      : cacheWriteRaw
+        ? Object.values(cacheWriteRaw).some((value) => typeof value === 'number' && value > 0)
+        : false
 
   const monthly = monthlyRaw
     ? {
@@ -154,16 +210,14 @@ function toModel(raw: RawOpenCodeModel): OpenCodeModel {
       cache_read: input?.cache?.read ?? 0,
       cache_write: typeof cacheWriteRaw === 'number' ? cacheWriteRaw : null,
     },
+    price_overrides: collectPriceOverrides(input, output),
     monthly_usage: monthly,
     training: Boolean(raw.go?.training),
     limited_regions: Boolean(raw.go?.limited_regions),
     free: monthly === null,
-    has_pricing_complexity: Boolean(
-      raw.cost?.multipliers?.length ||
-        input?.overrides?.length ||
-        output?.overrides?.length ||
-        (cacheWriteRaw !== null && typeof cacheWriteRaw === 'object'),
-    ),
+    // Overrides de contexto são aplicados pela calculadora. Sobram multiplicadores
+    // por horário e prêmios de cache write, que o MVP não modela.
+    has_pricing_complexity: Boolean(raw.cost?.multipliers?.length || cacheWritePremium),
   }
 }
 
@@ -228,12 +282,17 @@ function matchAaModels(
 /* ---------- Estruturas vazias (bootstrap sem chave da AA) ---------- */
 
 function emptyRanking(generatedAt: string): RankingFile {
-  const emptyView = { coding: [], general: [] }
   return {
     generated_at: generatedAt,
     intelligence_index_version: null,
-    plans: { go: emptyView, go_plus: emptyView },
-    excluded: { coding: [], general: [] },
+    plans: {
+      go: { coding: [], general: [] },
+      go_plus: { coding: [], general: [] },
+    },
+    excluded: {
+      go: { coding: [], general: [] },
+      go_plus: { coding: [], general: [] },
+    },
   }
 }
 
@@ -241,6 +300,7 @@ function emptyRanking(generatedAt: string): RankingFile {
 
 async function main(): Promise<void> {
   const skipAa = process.argv.includes('--skip-aa')
+  const force = process.argv.includes('--force')
   const generatedAt = new Date().toISOString()
 
   console.log('→ Buscando catálogo do OpenCode Go…')
@@ -249,6 +309,12 @@ async function main(): Promise<void> {
 
   if (models.length === 0) {
     throw new Error('O endpoint do OpenCode não retornou modelos.')
+  }
+
+  if (models.length >= 5 && !models.some((model) => model.prices.input > 0)) {
+    throw new Error(
+      'Schema de preços do OpenCode mudou: nenhum modelo com preço de entrada > 0. Abortando para não publicar dados zerados.',
+    )
   }
 
   await mkdir(DATA_DIR, { recursive: true })
@@ -300,6 +366,14 @@ async function main(): Promise<void> {
   if (aaModels.length === 0) {
     throw new Error('A API da Artificial Analysis não retornou modelos.')
   }
+  if (!aaModels.some((aa) => aa.evaluations !== undefined)) {
+    throw new Error('Schema da AA mudou: campo "evaluations" ausente em todos os modelos.')
+  }
+  if (!aaModels.some((aa) => aa.evaluations?.artificial_analysis_intelligence_index != null)) {
+    throw new Error(
+      'Schema da AA mudou: nenhum modelo com artificial_analysis_intelligence_index. Abortando para não publicar ranking vazio.',
+    )
+  }
   console.log(`  ${aaModels.length} modelos na AA.`)
 
   const mappings = JSON.parse(await readFile(MAPPINGS_PATH, 'utf8')) as MappingsFile
@@ -342,16 +416,21 @@ async function main(): Promise<void> {
       go: { coding: [], general: [] },
       go_plus: { coding: [], general: [] },
     },
-    excluded: { coding: [], general: [] },
+    excluded: {
+      go: { coding: [], general: [] },
+      go_plus: { coding: [], general: [] },
+    },
   }
 
   for (const plan of PLANS) {
-    ranking.plans[plan].coding = buildRanking(models, aaById, plan, 'engineering_index').entries
-    ranking.plans[plan].general = buildRanking(models, aaById, plan, 'intelligence_index').entries
-  }
+    const coding = buildRanking(models, aaById, plan, 'engineering_index')
+    const general = buildRanking(models, aaById, plan, 'intelligence_index')
 
-  ranking.excluded.coding = buildRanking(models, aaById, 'go', 'engineering_index').excluded
-  ranking.excluded.general = buildRanking(models, aaById, 'go', 'intelligence_index').excluded
+    ranking.plans[plan].coding = coding.entries
+    ranking.plans[plan].general = general.entries
+    ranking.excluded[plan].coding = coding.excluded
+    ranking.excluded[plan].general = general.excluded
+  }
 
   const meta: MetaFile = {
     generated_at: generatedAt,
@@ -361,7 +440,40 @@ async function main(): Promise<void> {
       matched: aaById.size,
       ranked_coding: ranking.plans.go.coding.length,
       ranked_general: ranking.plans.go.general.length,
+      aa_models: aaModels.length,
+      unmatched: unmatched.length,
     },
+  }
+
+  // Guarda de qualidade: se os dados encolheram de forma suspeita em relação à
+  // última execução, aborta sem gravar (provável mudança de schema ou API quebrada).
+  const previousMeta = await readPreviousMeta()
+  if (!force && previousMeta) {
+    const previousRanked = previousMeta.counts?.ranked_general ?? 0
+    const previousMatched = previousMeta.counts?.matched ?? 0
+    const previousAaModels = previousMeta.counts?.aa_models ?? 0
+    const problems: string[] = []
+
+    if (previousRanked >= 5 && meta.counts.ranked_general < previousRanked / 2) {
+      problems.push(
+        `ranking geral caiu de ${previousRanked} para ${meta.counts.ranked_general} modelos`,
+      )
+    }
+    if (previousMatched >= 10 && aaById.size < previousMatched / 2) {
+      problems.push(`correspondências com a AA caíram de ${previousMatched} para ${aaById.size}`)
+    }
+    if (previousAaModels >= 100 && aaModels.length < previousAaModels / 2) {
+      problems.push(`catálogo da AA caiu de ${previousAaModels} para ${aaModels.length} modelos`)
+    }
+    if (previousRanked >= 3 && meta.counts.ranked_coding === 0) {
+      problems.push('ranking de programação ficou vazio (Engineering Index indisponível?)')
+    }
+
+    if (problems.length > 0) {
+      throw new Error(
+        `Guarda de qualidade acionada: ${problems.join('; ')}. Nada foi gravado. Se a mudança for legítima, repita com --force.`,
+      )
+    }
   }
 
   // Só grava depois de todas as coletas e cálculos terem dado certo.
