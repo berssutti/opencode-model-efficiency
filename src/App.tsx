@@ -18,7 +18,25 @@ function Layout() {
       <header className="site-header">
         <div className="site-header-inner">
           <div className="brand">
-            <span className="brand-mark">OC</span>
+            <span className="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M5 16a7 7 0 0 1 14 0"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M12 15.8 16.3 9.6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                />
+                <circle cx="12" cy="15.8" r="1.9" fill="currentColor" />
+              </svg>
+            </span>
             <div className="brand-text">
               <strong>Model Efficiency</strong>
               <span>OpenCode Go · uso pessoal</span>
@@ -66,8 +84,8 @@ function Layout() {
           </p>
           <p>
             Projeto pessoal e informativo, sem afiliação com OpenCode ou Artificial Analysis.
-            Fórmulas e limitações na{' '}
-            <NavLink to="/metodologia">página de metodologia</NavLink>.
+            OpenCode e demais marcas pertencem aos seus respectivos proprietários. Fórmulas e
+            limitações na <NavLink to="/metodologia">página de metodologia</NavLink>.
           </p>
         </div>
       </footer>

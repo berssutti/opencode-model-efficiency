@@ -104,10 +104,13 @@ code {
   place-items: center;
   background: linear-gradient(135deg, var(--accent), #6fdc8c);
   color: #0a0c0f;
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: 0.02em;
   flex: none;
+}
+
+.brand-mark svg {
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 
 .brand-text {
