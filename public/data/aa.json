@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T14:22:10.348Z",
+  "generated_at": "2026-11-23T17:45:11.442Z",
   "intelligence_index_version": "5",
   "models": [
     {
@@ -237,20 +237,6 @@
       "prices": {
         "input": 0.15,
         "output": 0.6,
-        "cache_read": 0.015
-      }
-    },
-    {
-      "opencode_id": "longcat-2.0",
-      "slug": "longcat-2-0",
-      "name": "LongCat 2.0",
-      "creator": "LongCat",
-      "intelligence_index": null,
-      "engineering_index": null,
-      "cost_per_task": null,
-      "prices": {
-        "input": 0.75,
-        "output": 2.95,
         "cache_read": 0.015
       }
     },

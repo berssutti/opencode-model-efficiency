@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T14:22:10.348Z",
+  "generated_at": "2026-11-23T17:45:11.442Z",
   "intelligence_index_version": "5",
   "plans": {
     "go": {
@@ -43,20 +43,6 @@
           "adjustment_factor": 0.5,
           "monthly_limit": 100,
           "franchise_pct_per_task": 0.0030105,
-          "training": false,
-          "limited_regions": false
-        },
-        {
-          "id": "glm-5.3",
-          "name": "GLM-5.3",
-          "score": 21.1,
-          "raw_score": 3753.0194,
-          "index": 37.6,
-          "cost_per_task_aa": 5.0093,
-          "cost_per_task_opencode": 5.0093,
-          "adjustment_factor": 1,
-          "monthly_limit": 500,
-          "franchise_pct_per_task": 0.0100186,
           "training": false,
           "limited_regions": false
         },
@@ -141,6 +127,20 @@
           "adjustment_factor": 1,
           "monthly_limit": 15,
           "franchise_pct_per_task": 0.0274,
+          "training": false,
+          "limited_regions": false
+        },
+        {
+          "id": "glm-5.3",
+          "name": "GLM-5.3",
+          "score": 8.5,
+          "raw_score": 1501.2078,
+          "index": 37.6,
+          "cost_per_task_aa": 5.0093,
+          "cost_per_task_opencode": 5.0093,
+          "adjustment_factor": 1,
+          "monthly_limit": 200,
+          "franchise_pct_per_task": 0.0250465,
           "training": false,
           "limited_regions": false
         },
@@ -329,20 +329,6 @@
           "limited_regions": false
         },
         {
-          "id": "glm-5.3",
-          "name": "GLM-5.3",
-          "score": 21.5,
-          "raw_score": 3164.1147,
-          "index": 31.7,
-          "cost_per_task_aa": 5.0093,
-          "cost_per_task_opencode": 5.0093,
-          "adjustment_factor": 1,
-          "monthly_limit": 500,
-          "franchise_pct_per_task": 0.0100186,
-          "training": false,
-          "limited_regions": false
-        },
-        {
           "id": "glm-5.3-flash",
           "name": "GLM-5.3-Flash",
           "score": 19.4,
@@ -423,6 +409,20 @@
           "adjustment_factor": 1,
           "monthly_limit": 15,
           "franchise_pct_per_task": 0.0274,
+          "training": false,
+          "limited_regions": false
+        },
+        {
+          "id": "glm-5.3",
+          "name": "GLM-5.3",
+          "score": 8.6,
+          "raw_score": 1265.6459,
+          "index": 31.7,
+          "cost_per_task_aa": 5.0093,
+          "cost_per_task_opencode": 5.0093,
+          "adjustment_factor": 1,
+          "monthly_limit": 200,
+          "franchise_pct_per_task": 0.0250465,
           "training": false,
           "limited_regions": false
         },
@@ -669,20 +669,6 @@
           "limited_regions": false
         },
         {
-          "id": "glm-5.3",
-          "name": "GLM-5.3",
-          "score": 21.1,
-          "raw_score": 7506.0388,
-          "index": 37.6,
-          "cost_per_task_aa": 5.0093,
-          "cost_per_task_opencode": 5.0093,
-          "adjustment_factor": 1,
-          "monthly_limit": 1000,
-          "franchise_pct_per_task": 0.0050093,
-          "training": false,
-          "limited_regions": false
-        },
-        {
           "id": "claude-haiku-5-5",
           "name": "Claude Haiku 5.5",
           "score": 17.5,
@@ -749,6 +735,20 @@
           "adjustment_factor": 1,
           "monthly_limit": 180,
           "franchise_pct_per_task": 0.00713944,
+          "training": false,
+          "limited_regions": false
+        },
+        {
+          "id": "glm-5.3",
+          "name": "GLM-5.3",
+          "score": 8.5,
+          "raw_score": 3002.4155,
+          "index": 37.6,
+          "cost_per_task_aa": 5.0093,
+          "cost_per_task_opencode": 5.0093,
+          "adjustment_factor": 1,
+          "monthly_limit": 400,
+          "franchise_pct_per_task": 0.01252325,
           "training": false,
           "limited_regions": false
         },
@@ -951,20 +951,6 @@
           "limited_regions": false
         },
         {
-          "id": "glm-5.3",
-          "name": "GLM-5.3",
-          "score": 21.5,
-          "raw_score": 6328.2295,
-          "index": 31.7,
-          "cost_per_task_aa": 5.0093,
-          "cost_per_task_opencode": 5.0093,
-          "adjustment_factor": 1,
-          "monthly_limit": 1000,
-          "franchise_pct_per_task": 0.0050093,
-          "training": false,
-          "limited_regions": false
-        },
-        {
           "id": "claude-haiku-5-5",
           "name": "Claude Haiku 5.5",
           "score": 18.1,
@@ -1031,6 +1017,20 @@
           "adjustment_factor": 1,
           "monthly_limit": 180,
           "franchise_pct_per_task": 0.00713944,
+          "training": false,
+          "limited_regions": false
+        },
+        {
+          "id": "glm-5.3",
+          "name": "GLM-5.3",
+          "score": 8.6,
+          "raw_score": 2531.2918,
+          "index": 31.7,
+          "cost_per_task_aa": 5.0093,
+          "cost_per_task_opencode": 5.0093,
+          "adjustment_factor": 1,
+          "monthly_limit": 400,
+          "franchise_pct_per_task": 0.01252325,
           "training": false,
           "limited_regions": false
         },
@@ -1164,11 +1164,6 @@
           "reason": "sem Engineering Index na Artificial Analysis"
         },
         {
-          "id": "longcat-2.0",
-          "name": "LongCat-2.0",
-          "reason": "sem Engineering Index na Artificial Analysis"
-        },
-        {
           "id": "beam-free",
           "name": "Beam Free",
           "reason": "modelo gratuito — não consome franquia"
@@ -1184,14 +1179,44 @@
           "reason": "modelo gratuito — não consome franquia"
         },
         {
-          "id": "longcat-2.5-free",
-          "name": "LongCat 2.5 Free",
-          "reason": "modelo gratuito — não consome franquia"
-        },
-        {
           "id": "hy4-flash-free",
           "name": "Hy4 flash Free",
           "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "longcat-2.5",
+          "name": "LongCat-2.5",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "jev-1.14",
+          "name": "Jev 1.14",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "gemini-decision-1",
+          "name": "Gemini Decision 1",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "gpt-6-luna-decision",
+          "name": "GPT-6 Luna Decision",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "text-embedding-3-small",
+          "name": "text-embedding-3-small",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "qwen3-embedding-8b",
+          "name": "Qwen3 Embedding 8B",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "gemini-embedding-2",
+          "name": "Gemini Embedding 2",
+          "reason": "sem correspondência na Artificial Analysis"
         }
       ],
       "general": [
@@ -1221,11 +1246,6 @@
           "reason": "sem Intelligence Index na Artificial Analysis"
         },
         {
-          "id": "longcat-2.0",
-          "name": "LongCat-2.0",
-          "reason": "sem Intelligence Index na Artificial Analysis"
-        },
-        {
           "id": "beam-free",
           "name": "Beam Free",
           "reason": "modelo gratuito — não consome franquia"
@@ -1241,14 +1261,44 @@
           "reason": "modelo gratuito — não consome franquia"
         },
         {
-          "id": "longcat-2.5-free",
-          "name": "LongCat 2.5 Free",
-          "reason": "modelo gratuito — não consome franquia"
-        },
-        {
           "id": "hy4-flash-free",
           "name": "Hy4 flash Free",
           "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "longcat-2.5",
+          "name": "LongCat-2.5",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "jev-1.14",
+          "name": "Jev 1.14",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "gemini-decision-1",
+          "name": "Gemini Decision 1",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "gpt-6-luna-decision",
+          "name": "GPT-6 Luna Decision",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "text-embedding-3-small",
+          "name": "text-embedding-3-small",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "qwen3-embedding-8b",
+          "name": "Qwen3 Embedding 8B",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "gemini-embedding-2",
+          "name": "Gemini Embedding 2",
+          "reason": "sem correspondência na Artificial Analysis"
         }
       ]
     },
@@ -1280,11 +1330,6 @@
           "reason": "sem Engineering Index na Artificial Analysis"
         },
         {
-          "id": "longcat-2.0",
-          "name": "LongCat-2.0",
-          "reason": "sem Engineering Index na Artificial Analysis"
-        },
-        {
           "id": "beam-free",
           "name": "Beam Free",
           "reason": "modelo gratuito — não consome franquia"
@@ -1300,14 +1345,44 @@
           "reason": "modelo gratuito — não consome franquia"
         },
         {
-          "id": "longcat-2.5-free",
-          "name": "LongCat 2.5 Free",
-          "reason": "modelo gratuito — não consome franquia"
-        },
-        {
           "id": "hy4-flash-free",
           "name": "Hy4 flash Free",
           "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "longcat-2.5",
+          "name": "LongCat-2.5",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "jev-1.14",
+          "name": "Jev 1.14",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "gemini-decision-1",
+          "name": "Gemini Decision 1",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "gpt-6-luna-decision",
+          "name": "GPT-6 Luna Decision",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "text-embedding-3-small",
+          "name": "text-embedding-3-small",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "qwen3-embedding-8b",
+          "name": "Qwen3 Embedding 8B",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "gemini-embedding-2",
+          "name": "Gemini Embedding 2",
+          "reason": "sem correspondência na Artificial Analysis"
         }
       ],
       "general": [
@@ -1337,11 +1412,6 @@
           "reason": "sem Intelligence Index na Artificial Analysis"
         },
         {
-          "id": "longcat-2.0",
-          "name": "LongCat-2.0",
-          "reason": "sem Intelligence Index na Artificial Analysis"
-        },
-        {
           "id": "beam-free",
           "name": "Beam Free",
           "reason": "modelo gratuito — não consome franquia"
@@ -1357,14 +1427,44 @@
           "reason": "modelo gratuito — não consome franquia"
         },
         {
-          "id": "longcat-2.5-free",
-          "name": "LongCat 2.5 Free",
-          "reason": "modelo gratuito — não consome franquia"
-        },
-        {
           "id": "hy4-flash-free",
           "name": "Hy4 flash Free",
           "reason": "modelo gratuito — não consome franquia"
+        },
+        {
+          "id": "longcat-2.5",
+          "name": "LongCat-2.5",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "jev-1.14",
+          "name": "Jev 1.14",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "gemini-decision-1",
+          "name": "Gemini Decision 1",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "gpt-6-luna-decision",
+          "name": "GPT-6 Luna Decision",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "text-embedding-3-small",
+          "name": "text-embedding-3-small",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "qwen3-embedding-8b",
+          "name": "Qwen3 Embedding 8B",
+          "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "gemini-embedding-2",
+          "name": "Gemini Embedding 2",
+          "reason": "sem correspondência na Artificial Analysis"
         }
       ]
     }
