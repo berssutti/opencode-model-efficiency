@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T17:45:11.442Z",
+  "generated_at": "2026-11-24T17:18:17.070Z",
   "models": [
     {
       "id": "deepseek-v4.1-flash",
@@ -755,6 +755,27 @@
       "has_pricing_complexity": false
     },
     {
+      "id": "hungerg-free",
+      "name": "HungerG Free",
+      "description": "Stealth reasoning model, free for a limited time",
+      "family": null,
+      "open_weights": false,
+      "context": 1000000,
+      "max_output": 65536,
+      "prices": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": null
+      },
+      "price_overrides": [],
+      "monthly_usage": null,
+      "training": false,
+      "limited_regions": false,
+      "free": true,
+      "has_pricing_complexity": false
+    },
+    {
       "id": "jev-1.14",
       "name": "Jev 1.14",
       "description": "System One model for fast, typed probabilistic decisions over text or structured state",
@@ -770,8 +791,8 @@
       },
       "price_overrides": [],
       "monthly_usage": {
-        "go": 15,
-        "go_plus": 60
+        "go": 10,
+        "go_plus": 40
       },
       "training": false,
       "limited_regions": true,
@@ -794,8 +815,8 @@
       },
       "price_overrides": [],
       "monthly_usage": {
-        "go": 15,
-        "go_plus": 60
+        "go": 10,
+        "go_plus": 40
       },
       "training": false,
       "limited_regions": false,
@@ -825,8 +846,8 @@
         }
       ],
       "monthly_usage": {
-        "go": 15,
-        "go_plus": 60
+        "go": 10,
+        "go_plus": 40
       },
       "training": false,
       "limited_regions": false,
@@ -849,8 +870,8 @@
       },
       "price_overrides": [],
       "monthly_usage": {
-        "go": 15,
-        "go_plus": 60
+        "go": 10,
+        "go_plus": 40
       },
       "training": false,
       "limited_regions": false,
@@ -873,8 +894,8 @@
       },
       "price_overrides": [],
       "monthly_usage": {
-        "go": 15,
-        "go_plus": 60
+        "go": 10,
+        "go_plus": 40
       },
       "training": false,
       "limited_regions": false,
@@ -897,8 +918,8 @@
       },
       "price_overrides": [],
       "monthly_usage": {
-        "go": 15,
-        "go_plus": 60
+        "go": 10,
+        "go_plus": 40
       },
       "training": false,
       "limited_regions": false,

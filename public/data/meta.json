@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-23T17:45:11.442Z",
+  "generated_at": "2026-11-24T17:18:17.070Z",
   "aa_intelligence_index_version": "5",
   "counts": {
-    "opencode_models": 36,
+    "opencode_models": 37,
     "matched": 25,
     "ranked_coding": 20,
     "ranked_general": 20,
     "aa_models": 766,
-    "unmatched": 11
+    "unmatched": 12
   }
 }

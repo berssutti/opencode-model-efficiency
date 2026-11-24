@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T17:45:11.442Z",
+  "generated_at": "2026-11-24T17:18:17.070Z",
   "intelligence_index_version": "5",
   "plans": {
     "go": {
@@ -1189,6 +1189,11 @@
           "reason": "sem correspondência na Artificial Analysis"
         },
         {
+          "id": "hungerg-free",
+          "name": "HungerG Free",
+          "reason": "modelo gratuito — não consome franquia"
+        },
+        {
           "id": "jev-1.14",
           "name": "Jev 1.14",
           "reason": "sem correspondência na Artificial Analysis"
@@ -1269,6 +1274,11 @@
           "id": "longcat-2.5",
           "name": "LongCat-2.5",
           "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "hungerg-free",
+          "name": "HungerG Free",
+          "reason": "modelo gratuito — não consome franquia"
         },
         {
           "id": "jev-1.14",
@@ -1355,6 +1365,11 @@
           "reason": "sem correspondência na Artificial Analysis"
         },
         {
+          "id": "hungerg-free",
+          "name": "HungerG Free",
+          "reason": "modelo gratuito — não consome franquia"
+        },
+        {
           "id": "jev-1.14",
           "name": "Jev 1.14",
           "reason": "sem correspondência na Artificial Analysis"
@@ -1435,6 +1450,11 @@
           "id": "longcat-2.5",
           "name": "LongCat-2.5",
           "reason": "sem correspondência na Artificial Analysis"
+        },
+        {
+          "id": "hungerg-free",
+          "name": "HungerG Free",
+          "reason": "modelo gratuito — não consome franquia"
         },
         {
           "id": "jev-1.14",
