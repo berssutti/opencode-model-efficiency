@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T17:18:17.070Z",
+  "generated_at": "2026-11-25T16:59:01.077Z",
   "models": [
     {
       "id": "deepseek-v4.1-flash",
@@ -299,8 +299,8 @@
       "description": "A next-generation productivity model with significantly enhanced Agent and complex task execution capabilities.",
       "family": "hy",
       "open_weights": true,
-      "context": 1024000,
-      "max_output": 64000,
+      "context": 1048576,
+      "max_output": 65536,
       "prices": {
         "input": 0.834,
         "output": 2.501,
@@ -344,7 +344,7 @@
     {
       "id": "kimi-k3",
       "name": "Kimi K3",
-      "description": "Multimodal Kimi model with 1M context and toggleable max-effort thinking for long-horizon agent work",
+      "description": "Multimodal Kimi model with 1M context and always-on thinking for long-horizon agent work",
       "family": "kimi",
       "open_weights": true,
       "context": 1048576,
@@ -608,8 +608,8 @@
       },
       "price_overrides": [],
       "monthly_usage": {
-        "go": 15,
-        "go_plus": 60
+        "go": 60,
+        "go_plus": 120
       },
       "training": false,
       "limited_regions": false,
@@ -666,7 +666,7 @@
       "name": "Hy4",
       "description": "A next-generation multimodal productivity model with significantly enhanced Agent and complex task execution capabilities.",
       "family": "hy",
-      "open_weights": false,
+      "open_weights": true,
       "context": 1048576,
       "max_output": 65536,
       "prices": {
@@ -690,7 +690,7 @@
       "name": "Hy4 flash Free",
       "description": "Tencent's lower-cost Hy4 tier for everyday agent and productivity tasks, with image understanding and a 1M-token context window.",
       "family": "hy-flash-free",
-      "open_weights": false,
+      "open_weights": true,
       "context": 1048576,
       "max_output": 65536,
       "prices": {
