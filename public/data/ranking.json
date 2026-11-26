@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T16:59:01.077Z",
+  "generated_at": "2026-11-26T16:39:41.061Z",
   "intelligence_index_version": "5",
   "plans": {
     "go": {
@@ -217,28 +217,14 @@
         {
           "id": "gemini-4-argon",
           "name": "Gemini 4 Argon",
-          "score": 2,
-          "raw_score": 346.249,
+          "score": 2.7,
+          "raw_score": 487.7082,
           "index": 57.4,
-          "cost_per_task_aa": 9.9466,
-          "cost_per_task_opencode": 4.9733,
+          "cost_per_task_aa": 7.0616,
+          "cost_per_task_opencode": 3.5308,
           "adjustment_factor": 0.5,
           "monthly_limit": 30,
-          "franchise_pct_per_task": 0.16577667,
-          "training": false,
-          "limited_regions": false
-        },
-        {
-          "id": "step-5-preview",
-          "name": "Step 5 Preview",
-          "score": 1.3,
-          "raw_score": 236.6435,
-          "index": 37,
-          "cost_per_task_aa": 2.3453,
-          "cost_per_task_opencode": 2.3453,
-          "adjustment_factor": 1,
-          "monthly_limit": 15,
-          "franchise_pct_per_task": 0.15635333,
+          "franchise_pct_per_task": 0.11769333,
           "training": false,
           "limited_regions": false
         },
@@ -253,6 +239,20 @@
           "adjustment_factor": 1,
           "monthly_limit": 15,
           "franchise_pct_per_task": 0.21787333,
+          "training": false,
+          "limited_regions": false
+        },
+        {
+          "id": "step-5-preview",
+          "name": "Step 5 Preview",
+          "score": 0.8,
+          "raw_score": 140.9488,
+          "index": 37,
+          "cost_per_task_aa": 3.9376,
+          "cost_per_task_opencode": 3.9376,
+          "adjustment_factor": 1,
+          "monthly_limit": 15,
+          "franchise_pct_per_task": 0.26250667,
           "training": false,
           "limited_regions": false
         },
@@ -483,6 +483,20 @@
           "limited_regions": false
         },
         {
+          "id": "gemini-4-argon",
+          "name": "Gemini 4 Argon",
+          "score": 2.9,
+          "raw_score": 429.0812,
+          "index": 50.5,
+          "cost_per_task_aa": 7.0616,
+          "cost_per_task_opencode": 3.5308,
+          "adjustment_factor": 0.5,
+          "monthly_limit": 30,
+          "franchise_pct_per_task": 0.11769333,
+          "training": false,
+          "limited_regions": false
+        },
+        {
           "id": "deepseek-v4-pro",
           "name": "DeepSeek V4 Pro",
           "score": 2.7,
@@ -493,20 +507,6 @@
           "adjustment_factor": 0.5,
           "monthly_limit": 15,
           "franchise_pct_per_task": 0.05897,
-          "training": false,
-          "limited_regions": false
-        },
-        {
-          "id": "gemini-4-argon",
-          "name": "Gemini 4 Argon",
-          "score": 2.1,
-          "raw_score": 304.6267,
-          "index": 50.5,
-          "cost_per_task_aa": 9.9466,
-          "cost_per_task_opencode": 4.9733,
-          "adjustment_factor": 0.5,
-          "monthly_limit": 30,
-          "franchise_pct_per_task": 0.16577667,
           "training": false,
           "limited_regions": false
         },
@@ -527,14 +527,14 @@
         {
           "id": "step-5-preview",
           "name": "Step 5 Preview",
-          "score": 1.2,
-          "raw_score": 182.2795,
+          "score": 0.7,
+          "raw_score": 108.5687,
           "index": 28.5,
-          "cost_per_task_aa": 2.3453,
-          "cost_per_task_opencode": 2.3453,
+          "cost_per_task_aa": 3.9376,
+          "cost_per_task_opencode": 3.9376,
           "adjustment_factor": 1,
           "monthly_limit": 15,
-          "franchise_pct_per_task": 0.15635333,
+          "franchise_pct_per_task": 0.26250667,
           "training": false,
           "limited_regions": false
         },
@@ -767,6 +767,20 @@
           "limited_regions": false
         },
         {
+          "id": "gemini-4-argon",
+          "name": "Gemini 4 Argon",
+          "score": 5.5,
+          "raw_score": 1950.8327,
+          "index": 57.4,
+          "cost_per_task_aa": 7.0616,
+          "cost_per_task_opencode": 3.5308,
+          "adjustment_factor": 0.5,
+          "monthly_limit": 120,
+          "franchise_pct_per_task": 0.02942333,
+          "training": false,
+          "limited_regions": false
+        },
+        {
           "id": "kimi-k3.1-pro",
           "name": "Kimi K3.1 Pro",
           "score": 4.7,
@@ -781,34 +795,6 @@
           "limited_regions": false
         },
         {
-          "id": "gemini-4-argon",
-          "name": "Gemini 4 Argon",
-          "score": 3.9,
-          "raw_score": 1384.9959,
-          "index": 57.4,
-          "cost_per_task_aa": 9.9466,
-          "cost_per_task_opencode": 4.9733,
-          "adjustment_factor": 0.5,
-          "monthly_limit": 120,
-          "franchise_pct_per_task": 0.04144417,
-          "training": false,
-          "limited_regions": false
-        },
-        {
-          "id": "step-5-preview",
-          "name": "Step 5 Preview",
-          "score": 2.7,
-          "raw_score": 946.574,
-          "index": 37,
-          "cost_per_task_aa": 2.3453,
-          "cost_per_task_opencode": 2.3453,
-          "adjustment_factor": 1,
-          "monthly_limit": 60,
-          "franchise_pct_per_task": 0.03908833,
-          "training": false,
-          "limited_regions": false
-        },
-        {
           "id": "qwen4-max",
           "name": "Qwen4 Max",
           "score": 2.6,
@@ -819,6 +805,20 @@
           "adjustment_factor": 1,
           "monthly_limit": 60,
           "franchise_pct_per_task": 0.05446833,
+          "training": false,
+          "limited_regions": false
+        },
+        {
+          "id": "step-5-preview",
+          "name": "Step 5 Preview",
+          "score": 1.6,
+          "raw_score": 563.7952,
+          "index": 37,
+          "cost_per_task_aa": 3.9376,
+          "cost_per_task_opencode": 3.9376,
+          "adjustment_factor": 1,
+          "monthly_limit": 60,
+          "franchise_pct_per_task": 0.06562667,
           "training": false,
           "limited_regions": false
         },
@@ -1035,6 +1035,20 @@
           "limited_regions": false
         },
         {
+          "id": "gemini-4-argon",
+          "name": "Gemini 4 Argon",
+          "score": 5.8,
+          "raw_score": 1716.3249,
+          "index": 50.5,
+          "cost_per_task_aa": 7.0616,
+          "cost_per_task_opencode": 3.5308,
+          "adjustment_factor": 0.5,
+          "monthly_limit": 120,
+          "franchise_pct_per_task": 0.02942333,
+          "training": false,
+          "limited_regions": false
+        },
+        {
           "id": "deepseek-v4-pro",
           "name": "DeepSeek V4 Pro",
           "score": 5.3,
@@ -1063,20 +1077,6 @@
           "limited_regions": false
         },
         {
-          "id": "gemini-4-argon",
-          "name": "Gemini 4 Argon",
-          "score": 4.1,
-          "raw_score": 1218.5068,
-          "index": 50.5,
-          "cost_per_task_aa": 9.9466,
-          "cost_per_task_opencode": 4.9733,
-          "adjustment_factor": 0.5,
-          "monthly_limit": 120,
-          "franchise_pct_per_task": 0.04144417,
-          "training": false,
-          "limited_regions": false
-        },
-        {
           "id": "qwen4-max",
           "name": "Qwen4 Max",
           "score": 2.7,
@@ -1093,14 +1093,14 @@
         {
           "id": "step-5-preview",
           "name": "Step 5 Preview",
-          "score": 2.5,
-          "raw_score": 729.1178,
+          "score": 1.5,
+          "raw_score": 434.2747,
           "index": 28.5,
-          "cost_per_task_aa": 2.3453,
-          "cost_per_task_opencode": 2.3453,
+          "cost_per_task_aa": 3.9376,
+          "cost_per_task_opencode": 3.9376,
           "adjustment_factor": 1,
           "monthly_limit": 60,
-          "franchise_pct_per_task": 0.03908833,
+          "franchise_pct_per_task": 0.06562667,
           "training": false,
           "limited_regions": false
         },

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T16:59:01.077Z",
+  "generated_at": "2026-11-26T16:39:41.061Z",
   "models": [
     {
       "id": "deepseek-v4.1-flash",
@@ -735,7 +735,7 @@
       "name": "LongCat-2.5",
       "description": "Meituan's multimodal reasoning model for long-horizon coding and agent tasks, with visual understanding and a 1M-token context window",
       "family": "longcat",
-      "open_weights": false,
+      "open_weights": true,
       "context": 1000000,
       "max_output": 262144,
       "prices": {

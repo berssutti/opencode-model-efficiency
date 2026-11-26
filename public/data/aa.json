@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T16:59:01.077Z",
+  "generated_at": "2026-11-26T16:39:41.061Z",
   "intelligence_index_version": "5",
   "models": [
     {
@@ -247,7 +247,7 @@
       "creator": "StepFun",
       "intelligence_index": 28.5,
       "engineering_index": 37,
-      "cost_per_task": 2.3453,
+      "cost_per_task": 3.9376,
       "prices": {
         "input": 1,
         "output": 2.7,
@@ -317,7 +317,7 @@
       "creator": "Google",
       "intelligence_index": 50.5,
       "engineering_index": 57.4,
-      "cost_per_task": 9.9466,
+      "cost_per_task": 7.0616,
       "prices": {
         "input": 4,
         "output": 20,
